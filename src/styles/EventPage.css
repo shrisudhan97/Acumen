@@ -1,0 +1,91 @@
+.shield {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 250px;
+  margin: 20px;
+  border-radius: 10px;
+  background-image: url('../assets/BG.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.shield:hover {
+  transition: transform 600ms;
+  transform: translateY(-15px);
+}
+
+.shield .shield-button {
+  position: absolute;
+  bottom: 0;
+  visibility: hidden;
+}
+
+.shield:hover .shield-button {
+  visibility: visible;
+}
+
+.shield img {
+  height: 100px;
+  width: 100px;
+}
+.mar-20{
+  margin: 20px;
+}
+
+.shield-wrap {
+  max-width: 900px;
+  flex-wrap: wrap;
+}
+
+.shield > h1 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+#h1{
+  font-family: sudhan;
+}
+@font-face {
+  font-family: sudhan;
+  src:url(../PlayfairDisplaySC-Bold.ttf);
+}
+@media only screen and (max-width: 720px) {
+  .shield-wrap {
+    justify-content: center !important;
+  }
+  .shield:hover {
+    margin: 20px;
+  }
+}
+
+/* Floating effect */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.paper {
+    height: 300px;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Apply floating effect on hover */
+.paper {
+    animation: float 2s ease-in-out infinite;
+}

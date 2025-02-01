@@ -1,0 +1,69 @@
+/* .model-head {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: #031a21;
+  max-width: 700px;
+  margin: 1.5rem auto;
+  z-index: 10000; 
+}
+
+.dialog-box {
+  border-radius: 10px;
+   margin: 10px;
+} */
+
+.model-head {
+  position: fixed; /* Fix the modal to the screen */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  display: flex; /* Flexbox centering */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999 !important; /* Very high z-index */
+}
+
+.dialog-box {
+  position: relative; /* Ensure dialog box is positioned relative to the modal */
+  background-color: #1e1e1e; /* Modal box background */
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 600px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  z-index: 10000; /* Higher than the modal itself */
+}
+
+.flex-1{
+  flex: 1;
+}
+
+.mx-20 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.cls-btn {
+  background-color: var(--red) !important;
+  border-radius: 5px;
+}
+
+.reg-btn {
+  background-color: var(--blue) !important;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width : 768px) {
+  .model-head {
+    overflow-y:scroll;
+    margin: 1.5rem;
+  }
+  .dialog-box {
+    max-height: 560px;
+  }
+
+}

@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
+
+:root {
+  --red: #ff6a00e5;
+  --blue: #dcc110;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: "Sofia Pro", Helvetica, sans-serif;
+}
+
+body>* {
+  /* font-family: 'Bree Serif', serif; */
+  font-family: 'Sofia Pro';
+  src: url('../public/fonts/SofiaPro.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal; 
+}
+
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("../public/fonts/SofiaPro.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Harry Beast Regular';
+  src: url('../public/fonts/HarryBeastRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Legendary Runes';
+  src: url('../public/fonts/Legendary Runes.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.monoton-font {
+  font-family: 'Monoton', cursive;
+}
+
+.lobster-font {
+  font-family: 'Lobster', cursive;
+}
+
+/*  */
+
+@media (max-width: 640px) { /* Small screens (e.g., mobile devices) */
+  .absolute-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+  }
+  .mobile-padding {
+    padding: 4rem 0rem !important; 
+  }
+}

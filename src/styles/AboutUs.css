@@ -1,0 +1,55 @@
+.about-us {
+    text-align: center;
+    padding: 200px;
+    height: 150vh; /* Ensure there's enough space to scroll */
+}
+
+.image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+    position: relative;
+}
+
+.about-us-image {
+    width: 500px;
+    transition: transform 2s ease-in-out; /* Smooth transition for movement */
+}
+
+.letter {
+    width: 400px;
+    height: 500px;
+    background-size: cover;
+    border: 10px solid transparent;
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Initially hidden */
+    transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out; /* Smooth fade-in */
+    animation: float 3s ease-in-out infinite; /* Floating animation */
+}
+
+/* Dumbledore moves slightly to the left */
+.move-left {
+    transform: translateX(-20%); /* Adjust the distance as needed */
+}
+
+/* Letter appears */
+.appear {
+    opacity: 1;
+    visibility: visible;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(2deg);
+    }
+}
+.house1{
+    background-image: url(../assets/Harry_Potter/grys.jpg);
+    padding: 30px;
+    margin-top:200px;
+
+}
