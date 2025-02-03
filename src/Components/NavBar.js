@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {AiOutlineClose, AiOutlineMenu} from "react-icons/ai"
 import {Link} from "react-router-dom";
-
+import dumbledoreImage from '../assets/Harry_Potter/Acumen_title.png'
 const NavBar = () => {
     const [nav, setNav] = useState(false)
 
@@ -12,7 +12,9 @@ const NavBar = () => {
         <div className="flex bg-navbarBg w-full justify-between items-center flex-wrap h-42 relative ">
             <div className="max-w-full mx-auto z-30 text-white flex w-full justify-between items-center h-24 px-[calc(100%*0.05)]">
 
-                <Link to="/"><h1 className="w-full text-4xl font-bold text-[var(--red)] font-runes">Acumen 2K25</h1></Link>
+                <Link to="/">
+                <img src={dumbledoreImage} style={{height:"40px"}}/>
+                 </Link>
 
                 <ul className="hidden md:flex flex-end ">
                     <li className="p-4"><Link to="/">Home</Link></li>

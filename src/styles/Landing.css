@@ -1,0 +1,17 @@
+.title{
+font-family: title;
+font-size: 60px;
+color: rgb(207, 92, 207);
+}
+@font-face {
+    font-family: title;
+    src:url(../assets/Harry_Potter/Wasted-Vindey.ttf) ;
+}
+@font-face {
+    font-family: under;
+    src: url(../assets/Harry_Potter/PlayfairDisplay-Regular.ttf);
+}
+.under{
+    font-family: under;
+    font-size: 30px;
+}

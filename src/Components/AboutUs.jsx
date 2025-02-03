@@ -4,7 +4,7 @@ import { Zoom } from "react-awesome-reveal";
 import stars from "../assets/stars.png";
 import bottom from "../assets/horizons_train.png";  
 import dumbledoreImage from '../assets/Harry_Potter/dumbledore.png';
-import letter from '../assets/Harry_Potter/letter111.png';
+import letter from '../assets/Harry_Potter/letter11.png';
 import "../styles/AboutUs.css";
 
 function AboutUs() {

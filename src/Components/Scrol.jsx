@@ -1,262 +1,198 @@
-// import React, { useState, useEffect, useRef } from "react";
-// import image0 from "../assets/Members/download.jpeg";
-// import image1 from "../assets/Members/download (1).jpeg";
-// import image2 from "../assets/Members/images.jpeg";
-// import image3 from "../assets/Members/images (1).jpeg";
-// import image4 from "../assets/Members/images (2).jpg";
-// import image5 from "../assets/Members/images001.jpg";
-// import leftArrow from "../assets/scroll_prev.svg";
-// import rightArrow from "../assets/scroll_next.svg";
-// import bottom from "../assets/horizons_bridge.png";
-
-
-// const Scrol = () => {
-//   const images = [image0, image1, image2, image3, image4, image5];
-//   const carouselRef = useRef(null);
-//   const [isPaused, setIsPaused] = useState(false);
-
-//   // Clone images to create the infinite scroll illusion
-//   const infiniteImages = [...images, ...images, ...images];
-
-//   const handleNextSlide = () => {
-//     if (carouselRef.current) {
-//       const slideWidth = carouselRef.current.children[0].offsetWidth;
-//       carouselRef.current.style.transition = "transform 0.5s linear";
-//       carouselRef.current.style.transform = `translateX(-${slideWidth}px)`;
-//       setTimeout(() => {
-//         carouselRef.current.style.transition = "none";
-//         carouselRef.current.appendChild(carouselRef.current.children[0]);
-//         // Move first image to the end
-//         carouselRef.current.style.transform = "translateX(0)";
-//       }, 500); // Match this duration with your CSS transition
-//     }
-//   };
-
-//   const handlePrevSlide = () => {
-//     if (carouselRef.current) {
-//       const lastImage = carouselRef.current.children[
-//         carouselRef.current.children.length - 1
-//       ];
-//       const slideWidth = lastImage.offsetWidth;
-//       carouselRef.current.style.transition = "none";
-//       carouselRef.current.insertBefore(
-//         lastImage,
-//         carouselRef.current.children[0]
-//       );
-//       // Move last image to the front
-//       carouselRef.current.style.transform = `translateX(-${slideWidth}px)`;
-//       setTimeout(() => {
-//         carouselRef.current.style.transition = "transform 0.5s linear";
-//         carouselRef.current.style.transform = "translateX(0)";
-//       }, 0);
-//     }
-//   };
-
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       if (!isPaused) {
-//         handleNextSlide();
-//       }
-//     }, 3000); // Adjust auto-scroll speed here
-//     return () => clearInterval(interval);
-//   }, [isPaused]);
-
-//   return (
-//     <div
-//       className="text-white relative bg-gradient-to-b from-[rgb(24,21,13)] via-[rgb(46,34,58)] to-[rgb(55,41,68)] pt-40 px-40"
-//     >
-//       <div className="relative w-full h-96 flex items-center justify-center overflow-hidden">
-//         {/* Previous Button */}
-//         <button
-//           onClick={handlePrevSlide}
-//           className="absolute left-4 z-10 p-2 bg-transparent"
-//         >
-//           <img
-//             src={leftArrow}
-//             alt="Previous"
-//             className="h-8 w-8 object-contain"
-//           />
-//         </button>
-//         {/* Carousel */}
-//         <div
-//           ref={carouselRef}
-//           className="flex items-center gap-x-10"
-//           onMouseEnter={() => setIsPaused(true)}
-//           onMouseLeave={() => setIsPaused(false)}
-//           style={{
-//             width: `${infiniteImages.length * 33.33}%`, // Adjust width based on visible images
-//             transform: "translateX(0)",
-//           }}
-//         >
-//           {infiniteImages.map((src, index) => (
-//             <div
-//               key={index}
-//               className="flex-shrink-0 w-1/6 h-full flex items-center justify-center"
-//             >
-//               <img
-//                 src={src}
-//                 alt={`Image ${index}`}
-//                 className="rounded-xl h-72 w-full object-cover"
-//               />
-//             </div>
-//           ))}
-//         </div>
-//         {/* Next Button */}
-//         <button
-//           onClick={handleNextSlide}
-//           className="absolute right-4 z-10 p-2 bg-transparent"
-//         >
-//           <img
-//             src={rightArrow}
-//             alt="Next"
-//             className="h-8 w-8 object-contain"
-//           />
-//         </button>
-//       </div>
-//       <div className="bottom-0 inset-0 z-10 left-0 w-full overflow-hidden">
-//         <img
-//           src={bottom}
-//           alt="Bottom Image"
-//           className="scale-150"
-//         />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Scrol;
-
-
-
-
 import React, { useState, useEffect, useRef } from "react";
-import image0 from "../assets/Members/download.jpeg";
-import image1 from "../assets/Members/download (1).jpeg";
-import image2 from "../assets/Members/images.jpeg";
-import image3 from "../assets/Members/images (1).jpeg";
-import image4 from "../assets/Members/images (2).jpg";
-import image5 from "../assets/Members/images001.jpg";
 import leftArrow from "../assets/scroll_prev.svg";
 import rightArrow from "../assets/scroll_next.svg";
 import bottom from "../assets/horizons_bridge.png";
-import stars from "../assets/stars.png"
+import stars from "../assets/stars.png";
+
+
+const importAll = (r) => {
+  return r.keys()
+    .map((fileName) => ({
+      name: fileName.replace("./", "").split('.')[0], // Get file name without extension
+      image: r(fileName),
+    }))
+    .sort((a, b) => {
+      // Regular alphabetic sorting
+      const nameA = a.name.toLowerCase();
+      const nameB = b.name.toLowerCase();
+
+      // If names are alphabetically the same, compare as numbers (if applicable)
+      const numA = parseInt(nameA.replace(/\D/g, ""), 10);
+      const numB = parseInt(nameB.replace(/\D/g, ""), 10);
+
+      if (!isNaN(numA) && !isNaN(numB)) {
+        return numA - numB; // Sort numerically if both have numbers
+      }
+      return nameA.localeCompare(nameB); // Otherwise, alphabetically
+    })
+    .map((item) => item.image);
+};
+
+const memberImages = importAll(
+  require.context("../assets/Members", false, /\.(jpg|jpeg|png|webp)$/i)
+);
+
+
+
+const combinedMembers = [
+  { name: "CIBI KRISHNA V", post: "Secretary", roll: "21ECR037", section: "IV - A" },
+  { name: "NAVEEN BHARATHI P", post: "Chairman", roll: "21ECR127", section: "IV - C" },
+  { name: "NIKITA N", post: "Treasurer", roll: "21ECR132", section: "IV - C" },
+  { name: "SARAVANA KUMAR P", post: "Vice Chairman", roll: "21ECR183", section: "IV - D" },
+  { name: "DEENA SHERIN S", post: "Additional Secretary", roll: "21ECR040", section: "IV - A" },
+  { name: "JINISHA M", post: "Treasurer", roll: "21ECR092", section: "IV - B" },
+  { name: "GNANA VENKATESH G", post: "Additional Secretary", roll: "21ECR062", section: "IV - B" },
+  { name: "ARAVINDAN A", post: "Secretary", roll: "21ECR018", section: "IV - A" },
+  { name: "JEEVAGAN N", post: "Additional Secretary", roll: "21ECR085", section: "IV - B" },
+  { name: "RAGUNATH R S", post: "Additional Secretary", roll: "21ECR156", section: "IV - C" },
+  { name: "KAVYA SHREE V N", post: "Additional Secretary", roll: "21ECR109", section: "IV - B" },
+  { name: "NIJITHRA G K", post: "Additional Secretary", roll: "21ECR131", section: "IV - C" },
+  { name: "NISHANTH S", post: "Additional Secretary", roll: "21ECR135", section: "IV - C" },
+  { name: "ANANYA K S", post: "Additional Secretary", roll: "21ECR015", section: "IV - A" },
+  { name: "SAKTHIMURUGAN R", post: "Additional Secretary", roll: "21ECR173", section: "IV - C" },
+  { name: "KAVIYA V", post: "Additional Secretary", roll: "21ECR106", section: "IV - B" },
+  { name: "PRETHIKAA D", post: "Joint Secretary", roll: "22ECR142", section: "III - C" },
+  { name: "SHRI SUDHAN B", post: "Joint Secretary", roll: "22ECR175", section: "III - C" },
+  { name: "YOGESH T N", post: "Joint Secretary", roll: "22ECR246", section: "III - D" },
+  { name: "JANANI R", post: "Joint Secretary", roll: "22ECR070", section: "III - B" },
+  { name: "BOOBATHI RAJA K M", post: "Executive Member", roll: "22ECR034", section: "III - A" },
+  { name: "ALAGU DIVYA SHREE M", post: "Executive Member", roll: "22ECR018", section: "III - A" },
+  { name: "DHARSHAN S", post: "Executive Member", roll: "22ECR046", section: "III - A" },
+  { name: "ELANGO S", post: "Executive Member", roll: "22ECR053", section: "III - A" },
+  { name: "KAVYASHRI J M", post: "Executive Member", roll: "22ECR081", section: "III - B" },
+  { name: "KAVIPRASHAAD L", post: "Executive Member", roll: "22ECR078", section: "III - B" },
+  { name: "LOKESHWARAN K", post: "Executive Member", roll: "22ECR095", section: "III - B" },
+  { name: "MOHANA PRIYA", post: "Executive Member", roll: "22ECR104", section: "III - B" },
+  { name: "SABARIVELAN S", post: "Executive Member", roll: "22ECR157", section: "III - C" },
+  { name: "SRINISHA S", post: "Executive Member", roll: "22ECR186", section: "III - C" },
+  { name: "SANDHYA D", post: "Executive Member", roll: "22ECR160", section: "III - C" },
+  { name: "SUBIKSHA S", post: "Executive Member", roll: "22ECR195", section: "III - D" },
+  { name: "YAZHINI B", post: "Executive Member", roll: "22ECR242", section: "III - D" },
+  { name: "VETRI SELVAN K", post: "Executive Member", roll: "22ECR227", section: "III - D" },
+  { name: "YOGITH SURIYA M", post: "Executive Member", roll: "22ECL268", section: "III - D" },
+  { name: "VISHALINI K S", post: "Executive Member", roll: "22ECR237", section: "III - D" },
+  { name: "AKILAN M", post: "Office Bearer", roll: "23ECR011", section: "II - A" },
+  { name: "AKSHAVIKAA P V", post: "Office Bearer", roll: "23ECR012", section: "II - A" },
+  { name: "HARINI M", post: "Office Bearer", roll: "23ECR071", section: "II - B" },
+  { name: "KARTHIKEYAN G", post: "Office Bearer", roll: "23ECR096", section: "II - B" },
+  { name: "SAKTHI C", post: "Office Bearer", roll: "23ECR202", section: "II - D" },
+  { name: "PRABANJARI V S", post: "Office Bearer", roll: "23ECR155", section: "II - C" },
+  { name: "SANDEEP M", post: "Office Bearer", roll: "23ECR185", section: "II - C" },
+  { name: "SELVA BRINDHA K", post: "Office Bearer", roll: "23ECR199", section: "II - D" },
+];
+
+
+// Ensure correct pairing of members with images
+const members = combinedMembers.map((member, i) => ({
+  id: i,
+  image: memberImages[i], // Assign correct image
+  name: member.name,
+  post: member.post,
+}));
+
+// Duplicate members for infinite scrolling
+const infiniteMembers = [...members, ...members, ...members];
 
 const Scrol = () => {
-  const images = [image0, image1, image2, image3, image4, image5];
   const carouselRef = useRef(null);
   const [isPaused, setIsPaused] = useState(false);
-
-  const infiniteImages = [...images, ...images, ...images];
-
-  const handleNextSlide = () => {
-    if (carouselRef.current) {
-      const slideWidth = carouselRef.current.children[0].offsetWidth;
-      carouselRef.current.style.transition = "transform 0.5s linear";
-      carouselRef.current.style.transform = `translateX(-${slideWidth}px)`;
-      setTimeout(() => {
-        carouselRef.current.style.transition = "none";
-        carouselRef.current.appendChild(carouselRef.current.children[0]);
-        carouselRef.current.style.transform = "translateX(0)";
-      }, 500);
-    }
-  };
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const handlePrevSlide = () => {
-    if (carouselRef.current) {
-      const lastImage = carouselRef.current.children[
-        carouselRef.current.children.length - 1
-      ];
-      const slideWidth = lastImage.offsetWidth;
+    if (!carouselRef.current || isAnimating) return;
+    setIsAnimating(true);
+
+    const lastChild = carouselRef.current.lastElementChild;
+    const slideWidth = lastChild.offsetWidth + 
+      parseInt(window.getComputedStyle(lastChild).marginRight);
+
+    // Move last child to the front
+    carouselRef.current.style.transition = "none";
+    carouselRef.current.insertBefore(lastChild, carouselRef.current.firstElementChild);
+    carouselRef.current.style.transform = `translateX(-${slideWidth}px)`;
+
+    requestAnimationFrame(() => {
+      if (!carouselRef.current) return;
+      carouselRef.current.style.transition = "transform 0.8s ease-in-out";
+      carouselRef.current.style.transform = "translateX(0)";
+
+      carouselRef.current.addEventListener("transitionend", () => setIsAnimating(false), { once: true });
+    });
+  };
+
+  const handleNextSlide = () => {
+    if (!carouselRef.current || isAnimating) return;
+    setIsAnimating(true);
+
+    const firstChild = carouselRef.current.firstElementChild;
+    const slideWidth = firstChild.offsetWidth +
+      parseInt(window.getComputedStyle(firstChild).marginRight);
+
+    carouselRef.current.style.transition = "transform 0.8s ease-out";
+    carouselRef.current.style.transform = `translateX(-${slideWidth}px)`;
+
+    carouselRef.current.addEventListener("transitionend", () => {
+      if (!carouselRef.current) return;
       carouselRef.current.style.transition = "none";
-      carouselRef.current.insertBefore(
-        lastImage,
-        carouselRef.current.children[0]
-      );
-      carouselRef.current.style.transform = `translateX(-${slideWidth}px)`;
-      setTimeout(() => {
-        carouselRef.current.style.transition = "transform 0.5s linear";
-        carouselRef.current.style.transform = "translateX(0)";
-      }, 0);
-    }
+      carouselRef.current.style.transform = "translateX(0)";
+      carouselRef.current.appendChild(firstChild);
+      setIsAnimating(false);
+    }, { once: true });
   };
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!isPaused) {
+      if (!isPaused && !isAnimating) {
         handleNextSlide();
       }
     }, 3000);
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, [isPaused, isAnimating]);
 
   return (
-    <>
-      <div className="text-white relative bg-gradient-to-b from-[rgb(24,21,13)] via-[rgb(46,34,58)] to-[rgb(55,41,68)] pt-40 px-44">
-        <div className="mb-8">
-          <h1 className="md:text-5xl sm:text-4xl text-xl font-bold text-[var(--red)] font-harry flex justify-center">
-            About Us
-          </h1>
-        </div>
-      <div className="absolute inset-0 bg-cover bg-center my-12 z-0" >
-        <img src={stars} alt="Bottom Image" className="w-full object-contain scale-150 z-0" />
+    <div className="relative bg-gradient-to-b from-[rgb(24,21,13)] via-[rgb(46,34,58)] to-[rgb(55,41,68)] pt-20 px-4 md:px-24 lg:px-44">
+      <h1 className="text-3xl md:text-5xl font-bold text-red-500 font-harry text-center" style={{color:"darkviolet"}} >
+        Our Team
+      </h1>
+
+      <div className="absolute inset-0 bg-cover bg-center my-12 z-0">
+        <img src={stars} alt="Stars background" className="w-full h-full object-cover opacity-50" />
       </div>
-        <div>
-          <button
-            onClick={handlePrevSlide}
-            className="absolute left-20 top-80 p-2 bg-transparent"
-          >
-            <img
-              src={leftArrow}
-              alt="Previous"
-              className="h-8 w-8 object-contain"
-            />
-          </button>
-        </div>
-        <div className="relative w-full h-96 flex items-center justify-center overflow-hidden">
-          {/* Carousel */}
-          <div
-            ref={carouselRef}
-            className="flex items-center gap-x-10"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            style={{
-              width: `${infiniteImages.length * 33.33}%`,
-              transform: "translateX(0)",
-            }}
-          >
-            {infiniteImages.map((src, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 w-1/6 h-full flex items-center justify-center"
-              >
-                <img
-                  src={src}
-                  alt={`Image ${index}`}
-                  className="rounded-xl h-72 w-full object-cover"
-                  
-                  />
-                
+
+      {/* Left Arrow Button */}
+      <button onClick={handlePrevSlide} className="absolute left-2 top-96 md:left-10 z-20 p-2">
+        <img src={leftArrow} alt="Previous" className="h-6 w-6 md:h-8 md:w-8" />
+      </button>
+
+      {/* Carousel */}
+      <div className="relative w-full h-[600px] flex items-center justify-center overflow-hidden">
+        <div
+          ref={carouselRef}
+          className="flex items-center gap-x-4 md:gap-x-10 h-full"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {infiniteMembers.map((member, index) => (
+            <div key={`${member.name}-${index}`} className="relative flex-shrink-0 w-[200px] md:w-[300px] h-[400px] transform transition-transform hover:scale-105">
+              <div className="relative h-80 w-64 overflow-hidden rounded-xl shadow-2xl">
+                <img src={member.image} alt={`Member ${member.name}`} className="h-full w-full object-cover" />
+                <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/80 to-transparent" />
+                <div className="absolute bottom-11 left-0 w-full text-center text-white text-xl font-bold">{member.name}</div>
+                <div className="absolute bottom-5 left-0 w-full text-center text-white text-sm font-bold">{member.post}</div>
               </div>
-            ))}
-          </div>
-        </div>
-        <div>
-          <button
-            onClick={handleNextSlide}
-            className="absolute right-28 top-80 p-2 bg-transparent"
-          >
-            <img
-              src={rightArrow}
-              alt="Next"
-              className="h-8 w-8 object-contain"
-            />
-          </button>
+            </div>
+          ))}
         </div>
       </div>
-      <div className="bottom-0 bg-[rgb(55,41,68)] inset-0 pb-3 left-0 w-full overflow-hidden">
-        <img src={bottom} alt="Bottom Image" className="scale-150" />
-      </div>
-    </>
+
+      {/* Right Arrow Button */}
+      <button onClick={handleNextSlide} className="absolute right-2 top-96 md:right-10 z-20 p-2 hover:scale-110 transition-transform">
+        <img src={rightArrow} alt="Next" className="h-6 w-6 md:h-8 md:w-8" />
+      </button>
+
+      {/* Decorative Bottom Image */}
+      <img src={bottom} alt="Decorative bridge" className="absolute w-full h-auto pb-4 scale-150 bottom-0 left-0 z-0" loading="lazy" />
+    </div>
   );
 };
 

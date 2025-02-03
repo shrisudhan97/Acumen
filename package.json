@@ -1,7 +1,8 @@
 {
   "name": "acumen",
   "version": "0.1.0",
-  "homepage": "https://naveenelan.github.io/acumen/",
+ "homepage": "https://shrisudhan97.github.io/Acumen",
+
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -27,7 +28,8 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist" ,
+
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

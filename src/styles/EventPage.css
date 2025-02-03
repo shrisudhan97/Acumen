@@ -89,3 +89,7 @@
 .paper {
     animation: float 2s ease-in-out infinite;
 }
+.button{
+  background-color: rgb(6, 92, 6);
+    color: aliceblue;
+}

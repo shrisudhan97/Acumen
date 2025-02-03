@@ -28,14 +28,14 @@ const Footer = ({ className }) => {
                     <img src={stars} alt="Stars Background" className="w-full h-full object-cover scale-150" />
                 </div>
                 <div className='text-left max-sm:basis-full max-sm:py-4 z-10'>
-                    <h1 className='text-4xl font-bold text-[var(--red)]'>Contact Us</h1>
+                    <h1 style={{color:"purple"}}className='text-4xl font-bold text-[var(--red)]'>Contact Us</h1>
                     <p className='py-4 font-bold text-xl text-white'>Staff Coordinator</p>
                     <p className='font-mono'>Dr. A. Arulmurugan - 9659341901</p>
                     <p className='font-mono'>Mr. K. Kavin Kumar - 8778544869</p>
                 </div>
                 <div className='text-left max-sm:basis-full max-sm:py-4 z-10'>
-                    <h1 className='text-4xl font-bold text-[var(--red)]'>Venue</h1>
-                    <h1 className='text-3xl font-bold text-white py-4'>Maharaja Auditorium</h1>
+                    <h1 style={{color:"purple"}} className='text-4xl font-bold text-[var(--red)]'>Venue</h1>
+                    <h1  className='text-3xl font-bold text-white py-4'>Maharaja Auditorium</h1>
                     <p className='font-bold text-xl text-white'>Student Coordinator</p>
                     <p className='font-mono'>6381271796 - Cibi Krishna V</p>
                     <p className='font-mono'>9994755088 - Kavyashree V N</p>
@@ -49,7 +49,7 @@ const Footer = ({ className }) => {
                     </ul>
                 </div>
                 <div className='text-center max-sm:basis-full'>
-                    <p className='py-4 font-bold text-2xl text-[var(--red)]'>ECEA & IETE Forum</p>
+                    <p style={{color:"purple"}} className='py-4 font-bold text-2xl text-[var(--red)]'>ECEA & IETE Forum</p>
                     <div className="flex flex-column justify-center gap-4">
                         <img src={iete} className="my-2 w-[100px] h-[100px] bg-white rounded" alt="beingkecinan" />
                         <img src={isf} className="my-2 w-[150px] h-[100px] bg-white rounded" alt="appatakars" />

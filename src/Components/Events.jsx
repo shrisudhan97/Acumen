@@ -3,9 +3,23 @@ import { Fade } from "react-awesome-reveal";
 import "../styles/EventPage.css";
 import Modal from "./Model.jsx";
 import stars from "../assets/stars.png";
+import h2 from "../assets/divider-diamond.svg"
 import tech from "../assets/horizons_hogwarts.png";
 import nontech from "../assets/horizons_quidditch.png";
 import dividerDiamond from "../assets/divider-diamond.svg"; // Import the divider-diamond.svg
+import  paper from "../assets/Harry_Potter/paper.jpg";
+import  project from "../assets/Harry_Potter/project.jpg";
+import  tech3 from "../assets/Harry_Potter/tech3.jpg";
+import  tech4 from "../assets/Harry_Potter/tech4.jpg";
+import  tech5 from "../assets/Harry_Potter/tech5.jpg";
+import  non1 from "../assets/Harry_Potter/non1.jpg";
+import  non2 from "../assets/Harry_Potter/non2.jpg";
+import  non3 from "../assets/Harry_Potter/non3.jpg";
+import  n1 from "../assets/Harry_Potter/workshop1.jpg";
+import  n2 from "../assets/Harry_Potter/workshop2.jpg";
+import  n3 from "../assets/Harry_Potter/workshop4.jpg";
+
+
 import '../styles/Title.css';
 
 import poster from '../assets/poster.png';
@@ -47,7 +61,10 @@ function Events() {
           </div>
           
           {/* Technical Events */}
-       
+       <div className="h1">
+       <h1>EVENTS</h1>
+       <img src={h2} alt="" />
+       </div>
 
           <Fade top>
             <div className="house">
@@ -55,22 +72,68 @@ function Events() {
               <div className="housesa">
                
                 <div className="house1">
-                <div className="Gryffindor">
-                  <h1>Gryffindor</h1>
+                <div  className="Gryffindor">
+                  <h1>Gryffindor (Tech)</h1>
                   <br />
                   </div>
-                    <div className="paper">
-                      <h3>PAPER PRESENTATION</h3>
-                      <button>Register</button>
-                    </div>
-                    <div className="paper">
-                      <h3>PROJECT PRESENTATION</h3>
-                      <button>Register</button>
-                    </div>
-                    <div className="paper">
-                      <h3>PROJECT PRESENTATION</h3>
-                      <button>Register</button>
-                    </div>
+                  <div
+                          className="paper"
+                          style={{
+                            backgroundImage: `url(${paper})`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "left",
+                            backgroundRepeat: "no-repeat",
+                          }}
+                          >
+                        <h3>PAPER PRESENTATION</h3>
+                      
+                      <a href="https://forms.gle/1p1X6NQC587WWKsf6
+
+">
+                       <center>
+                       <button style={{ backgroundColor: "rgb(144, 56, 56)", color: "white" }}>
+  Register
+</button>
+                       </center>
+                       </a>
+                     
+
+                  </div>
+                  <div
+  className="paper"
+  style={{
+    backgroundImage: `url(${project})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  <h3>PROJECT PRESENTATION</h3>
+  
+ <a href="https://forms.gle/29HKUSdY2fSgvq9d6
+
+">
+ <button style={{ backgroundColor: "rgb(144, 56, 56)", color: "white" }}>Register</button>
+ </a>
+</div>
+<div
+  className="paper"
+  style={{
+    backgroundImage: `url(${tech3})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+> <h3>CODATHON</h3>
+ <a href="https://forms.gle/8UE8fvESDnNf8pDr7
+
+
+
+">
+ <button style={{ backgroundColor: "rgb(144, 56, 56)", color: "white" }}>Register</button>
+ </a>
+ 
+</div>
                     
                     
                 </div>
@@ -81,17 +144,43 @@ function Events() {
                <div className="house2">
                 <br />
                <div className="Hufflepuff">
-                <h1>Hufflepuff</h1>
+                <h1>Hufflepuff (Tech)</h1>
                 <br />
                 </div>
-                  <div className="paper">
-                    <h3>PAPER PRESENTATION</h3>
-                    <button>Register</button>
-                  </div>
-                  <div className="paper">
-                    <h3>PROJECT PRESENTATION</h3>
-                    <button>Register</button>
-                  </div>
+                <div
+  className="paper"
+  style={{
+    backgroundImage: `url(${tech4})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  <h3>LINE FOLLOWER</h3>
+  <a href="https://forms.gle/uRX22dfJoYKrUZ818
+
+">
+  <button  style={{ backgroundColor: "rgb(144, 124, 10);", color: "white"} }>Register</button>
+
+  </a>
+  </div>
+<div
+  className="paper"
+  style={{
+    backgroundImage: `url(${tech5})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  <h3>ROBO RACE</h3>
+  <a href="https://forms.gle/8CLpxuyLnHPntjye9
+
+">
+  <button  style={{ backgroundColor: "rgb(144, 124, 10);", color: "white" }}>Register</button>
+
+  </a>
+  </div>
                 </div>
                </div>
               
@@ -108,19 +197,79 @@ function Events() {
               <div className="housesb">
                 
                   <div className="house3">
-                    <br />
+                 
                   <div className="Ravenclaw">
-                  <h1>Ravenclaw</h1>
+                  <h1>Ravenclaw (Non Tech)</h1>
                   <br />
                   </div>
-                  <div className="paper">
-                    <h3>PAPER PRESENTATION</h3>
-                    <button>Register</button>
-                  </div>
-                  <div className="paper">
-                    <h3>PROJECT PRESENTATION</h3>
-                    <button>Register</button>
-                  </div>
+                  <div
+  className="paper"
+  style={{
+    backgroundImage: `url(${non1})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  <h3>SHERLOCK HOLMES</h3>
+  <a href="https://forms.gle/t2y48ffCXdYWteip7
+
+">
+  <button  style={{ backgroundColor: "rgb(28, 28, 108)", color: "white" }}>Register</button>
+
+  </a>
+  </div>
+<div
+  className="paper"
+  style={{
+    backgroundImage: `url(${non2})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  <h3>MAKATRONS</h3>
+  <a href="https://forms.gle/6nzrGDV75RdeyRkT7
+
+">
+  <button  style={{ backgroundColor: "rgb(28, 28, 108)", color: "white" }}>Register</button>
+
+  </a>
+  </div>
+<div
+  className="paper"
+  style={{
+    backgroundImage: `url(${non3})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  <h3>HOGWARTS QUEST</h3>
+  <a href="https://forms.gle/f1vMNQaukLwxcaVH9
+
+">
+  <button  style={{ backgroundColor: "rgb(28, 28, 108))", color: "white" }}>Register</button>
+
+  </a>
+  </div>
+<div
+  className="paper"
+  style={{
+    backgroundImage: `url(${tech3})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  <h3>HOGWORDS</h3>
+  <a href="https://forms.gle/ScLBmti7B7z1nTo88
+
+">
+  <button  style={{ backgroundColor: "rgb(28, 28, 108)", color: "white" }}>Register</button>
+
+  </a>
+ </div>
                 </div>
 
                 {/* Vertical white line between house1 and house2 */}
@@ -135,25 +284,76 @@ function Events() {
                 
                   </div>
                   <br />
-                  <div className="paper">
-                    <h3>PAPER PRESENTATION</h3>
-                    <button>Register</button>
-                  </div>
-                  <div className="paper">
-                    <h3>PROJECT PRESENTATION</h3>
-                    <button>Register</button>
-                  </div>
+                  <div
+  className="paper"
+  style={{
+    backgroundImage: `url(${n3})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  <h3>BATTERY TECHNOLOGY</h3>
+  <a href="https://forms.gle/PtFAGZxqNgcEoG7J9
+
+">
+  <button  style={{ backgroundColor: "rgb(6, 92, 6)", color: "white" }}>Register</button>
+
+  </a>
+  </div>
+<div
+  className="paper"
+  style={{
+    backgroundImage: `url(${n2})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  <h3>DRONE TECHNOLOGY </h3>
+  <a href="https://forms.gle/JZSCXxxNRi5SRZ8H6
+
+">
+  <button  style={{ backgroundColor: "rgb(6, 92, 6)", color: "white" }}>Register</button>
+
+  </a>
+  </div>
+<div
+  className="paper"
+  style={{
+    backgroundImage: `url(${n1})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  <h3>PAPER PRESENTATION</h3>
+  <center>
+  <a href="https://forms.gle/MGQUxUUbJJLLAvKa6
+
+">
+  <button  style={{ backgroundColor: "rgb(6, 92, 6)", color: "white" }}>Register</button>
+
+  </a>
+  </center>
+  </div>
                 </div>
                 </div>
                 <br /><br /><br /><br /><br /><br /><br />
                   <div className="absolute bottom-5 left-0 w-full absolute-bottom">
 
                       <br /><br /><br /><br /><br /><br /><br />
-                  <h1>ATTENTION STUDENTTS</h1><br /><br /><b><br /></b>
+                 <br /><br /><b><br /></b>
+                 <div className="h1">
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                 <h1>ATTENTION STUDENTS .....</h1>
+       <img style={{width:"550px"}} src={h2} alt="" />
+       </div>
               <div className="image">
-                      <center>
-                      
-                      </center>
+              
                       <div
                           className={`letter ${isScrolling ? 'appear' : ''}`}
                           style={{ backgroundImage: `url(${letter})`,marginTop:"70px" }}

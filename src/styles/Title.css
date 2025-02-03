@@ -17,7 +17,15 @@
     
   }
   
-  
+  .h1{
+
+    font-family: sudhan;
+    font-size: 50px;
+  }
+  @font-face {
+    font-family: sudhan;
+    src:url(../assets/Harry_Potter/PlayfairDisplay-Regular.ttf);
+  }
   /* Vertical white line between house1 and house2 */
   .white-line {
     width: 2px; /* Thickness of the line */
@@ -55,7 +63,7 @@
   .paper {
     height: 300px;
     width: 200px;
-    background-image: url(../assets/Harry_Potter/harry.jpg);
+    border-radius: 20px;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -112,7 +120,8 @@
       rgba(255, 255, 255, 1)    /* Bright effect at the end (100% opacity) */
     );
     margin: 0 100px; /* Space around the line */
-    margin-top: 200px;
+    margin-top: 220px;
+    margin-right: 120px;
   }
   .white-line1 {
     width: 2px; /* Thickness of the line */
@@ -135,12 +144,14 @@
   width: 510px;
   gap: 50px;
   height: 500px;
+  border-radius: 20px;
 }
 
 .house1 {
   height: 500px; /* Fixed height for scrolling */
   overflow-y: scroll; /* Enable vertical scrolling */
   width: 530px;
+  margin-bottom: 20px;
   
 }
 
@@ -211,4 +222,7 @@
 /* Hide scrollbar for Chrome, Safari, and Opera */
 .house4::-webkit-scrollbar {
   display: none;
+}
+.image{
+  margin-top: -130px;
 }
