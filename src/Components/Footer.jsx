@@ -31,7 +31,7 @@ const Footer = ({ className }) => {
                     <h1 style={{color:"purple"}}className='text-4xl font-bold text-[var(--red)]'>Contact Us</h1>
                     <p className='py-4 font-bold text-xl text-white'>Staff Coordinator</p>
                     <p className='font-mono'>Dr. A. Arulmurugan - 9659341901</p>
-                    <p className='font-mono'>Mr. K. Kavin Kumar - 8778544869</p>
+                    <p className='font-mono'>Dr. K. Kavin Kumar - 8778544869</p>
                 </div>
                 <div className='text-left max-sm:basis-full max-sm:py-4 z-10'>
                     <h1 style={{color:"purple"}} className='text-4xl font-bold text-[var(--red)]'>Venue</h1>
@@ -40,7 +40,7 @@ const Footer = ({ className }) => {
                     <p className='font-mono'>6381271796 - Cibi Krishna V</p>
                     <p className='font-mono'>9994755088 - Kavyashree V N</p>
                     <p className='font-bold text-1xl text-white'>Transport Co ordinator</p>
-                    <p className='font-mono'>9342910364 - Jinisha</p>
+                    <p className='font-mono'>7010545799 - Selva Brinda K</p>
                     <p className='font-mono'>8526768789 - Boobathi Raja K M</p>
                     <ul className="py-4">
                         <a href='mailto:ecea.isf.2025@gmail.com' rel="noopener noreferrer " target={"_blank"} >
@@ -59,7 +59,7 @@ const Footer = ({ className }) => {
 
             <div className='max-w-full mx-auto py-16 px-4 text-gray-300 relative bg-navbarBg'>
                 <div className='p-4 flex justify-center align-center border border-[#696b78]'>
-                    <p className='px-4'>Designed and Developed By</p> <Link to='/dev' className='underline underline-offset-2 text-[var(--red)]'><p>Uruv</p></Link>
+                    <p className='px-4'>Designed and Developed By</p> <Link to='/dev' className='underline underline-offset-2 text-[var(--purple)]'><p>Uruv</p></Link>
                 </div>
             </div>
         </div>

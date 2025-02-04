@@ -228,7 +228,7 @@ function Events() {
     backgroundRepeat: "no-repeat",
   }}
 >
-  <h3>MAKATRONS</h3>
+  <h3>MARKETRONS</h3>
   <a href="https://forms.gle/6nzrGDV75RdeyRkT7
 
 ">
@@ -327,7 +327,7 @@ function Events() {
     backgroundRepeat: "no-repeat",
   }}
 >
-  <h3>PAPER PRESENTATION</h3>
+  <h3>SOFTWARE DEFINED RADIO -TECHNOLOY AND APPLICATION </h3>
   <center>
   <a href="https://forms.gle/MGQUxUUbJJLLAvKa6
 

@@ -1,0 +1,24 @@
+/* Responsive styles for mobile screens (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    #carousel {
+        gap: 1%; /* Reduce gap */
+    }
+
+    .carousel-item {
+        width: 80%; /* Reduce width to 80% of the parent */
+        height: 80%; /* Reduce height to 80% */
+    }
+
+    .carousel-image-container {
+        width: 80%; /* Reduce width */
+        height: 60%; /* Reduce height */
+    }
+
+    .carousel-name {
+        font-size: 60%; /* Reduce font size */
+    }
+
+    .carousel-post {
+        font-size: 50%; /* Reduce font size */
+    }
+}

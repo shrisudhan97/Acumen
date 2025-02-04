@@ -3,7 +3,7 @@ import leftArrow from "../assets/scroll_prev.svg";
 import rightArrow from "../assets/scroll_next.svg";
 import bottom from "../assets/horizons_bridge.png";
 import stars from "../assets/stars.png";
-
+import "../styles/scroll.css";
 
 const importAll = (r) => {
   return r.keys()
@@ -79,6 +79,12 @@ const combinedMembers = [
   { name: "PRABANJARI V S", post: "Office Bearer", roll: "23ECR155", section: "II - C" },
   { name: "SANDEEP M", post: "Office Bearer", roll: "23ECR185", section: "II - C" },
   { name: "SELVA BRINDHA K", post: "Office Bearer", roll: "23ECR199", section: "II - D" },
+  { name: "Dr.N.Kasthuri", post: "HOD of ECE", roll: "Faculty", section: "Faculty" },
+  { name: "Dr. A.Arulmurugan", post: "Faculty advisor ECEA", roll: "Faculty", section: "Faculty" },
+  { name: "Dr.K.Kavin Kumar", post: "Faculty advisor ISF", roll: "Faculty", section: "Faculty" },
+  { name: "G.DEEPA", post: "Faculty advisor ECEA", roll: "Faculty", section: "Faculty" },
+  { name: "R.Ramyea", post: "Faculty advisor ISF", roll: "Faculty", section: "Faculty" },
+  { name: "B.T.ANNAPOORANI", post: "Faculty advisor ECEA", roll: "Faculty", section: "Faculty" },
 ];
 
 
@@ -164,26 +170,27 @@ const Scrol = () => {
         <img src={leftArrow} alt="Previous" className="h-6 w-6 md:h-8 md:w-8" />
       </button>
 
-      {/* Carousel */}
       <div className="relative w-full h-[600px] flex items-center justify-center overflow-hidden">
-        <div
-          ref={carouselRef}
-          className="flex items-center gap-x-4 md:gap-x-10 h-full"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          {infiniteMembers.map((member, index) => (
-            <div key={`${member.name}-${index}`} className="relative flex-shrink-0 w-[200px] md:w-[300px] h-[400px] transform transition-transform hover:scale-105">
-              <div className="relative h-80 w-64 overflow-hidden rounded-xl shadow-2xl">
-                <img src={member.image} alt={`Member ${member.name}`} className="h-full w-full object-cover" />
-                <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/80 to-transparent" />
-                <div className="absolute bottom-11 left-0 w-full text-center text-white text-xl font-bold">{member.name}</div>
-                <div className="absolute bottom-5 left-0 w-full text-center text-white text-sm font-bold">{member.post}</div>
-              </div>
-            </div>
-          ))}
+  <div
+    ref={carouselRef}
+    className="flex items-center h-full"
+    id="carousel"
+    onMouseEnter={() => setIsPaused(true)}
+    onMouseLeave={() => setIsPaused(false)}
+  >
+    {infiniteMembers.map((member, index) => (
+      <div key={`${member.name}-${index}`} className="relative flex-shrink-0 carousel-item transform transition-transform hover:scale-105">
+        <div className="relative overflow-hidden rounded-xl shadow-2xl carousel-image-container">
+          <img src={member.image} alt={`Member ${member.name}`} className="h-full w-full object-cover" />
+          <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/80 to-transparent" />
+          <div className="absolute bottom-11 left-0 w-full text-center text-white font-bold carousel-name">{member.name}</div>
+          <div className="absolute bottom-5 left-0 w-full text-center text-white font-bold carousel-post">{member.post}</div>
         </div>
       </div>
+    ))}
+  </div>
+</div>
+
 
       {/* Right Arrow Button */}
       <button onClick={handleNextSlide} className="absolute right-2 top-96 md:right-10 z-20 p-2 hover:scale-110 transition-transform">

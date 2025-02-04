@@ -6,6 +6,7 @@ import bottom from "../assets/horizons_train.png";
 import dumbledoreImage from '../assets/Harry_Potter/dumbledore.png';
 import letter from '../assets/Harry_Potter/letter11.png';
 import "../styles/AboutUs.css";
+import dumbledoreImage1 from '../assets/Harry_Potter/witch11.png';
 
 function AboutUs() {
     const [isScrolling, setIsScrolling] = useState(false);
@@ -28,17 +29,26 @@ function AboutUs() {
             <div className="absolute inset-0 bg-cover bg-center my-48">
                 <img src={stars} alt="Stars" className="w-full object-contain scale-150" />
             </div>
+            <br /><br /><br /><br />
             <div className="image">
                 <center>
-                <img
-                    src={dumbledoreImage}
-                    alt="Albus Dumbledore"
-                    className={`about-us-image ${isScrolling ? 'move-left' : ''}`}
-                />
+                <div
+  className={`about-us-image ${isScrolling ? 'move-left' : ''}`}
+  style={{
+    backgroundImage: `url(${dumbledoreImage})`,
+    backgroundSize: "contain",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    width: "300px", // Adjust as needed
+    height: "400px", // Adjust as needed
+  }}
+></div>
+
                 </center>
                 <div
                     className={`letter ${isScrolling ? 'appear' : ''}`}
-                    style={{ backgroundImage: `url(${letter})` }}
+                    style={{ backgroundImage: `url(${letter})`}}
+                    
                 ></div>
             </div>
             <div className="absolute bottom-5 left-0 w-full absolute-bottom">

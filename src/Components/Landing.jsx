@@ -19,7 +19,7 @@ function Landing() {
               Kongu Engineering College
             </p>
             <p className="under">
-              ECE Association & IETE Student Forum
+              ECE Association & IETE Student Forum (ISF)
             </p>
             <p className="md:text-4xl sm:text-3xl sm:mt-10 text-xl font-bold">
               Proudly Presents <br /><br />
@@ -38,7 +38,7 @@ function Landing() {
               sequence={[
                 "Registration opens",
                 15000,
-                "Cash Prize upto ₹15k",
+                "Prize Pool for 23k",
                 15000,
               ]}
               wrapper="span"
